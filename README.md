@@ -17,6 +17,13 @@
 - has_one :credit_card, dependent: :destroy
 
 
+
+
+
+
+
+
+
 ## profiles テーブル
 | Column            | Type        | Options                      |
 |-------------------|-------------|------------------------------|
