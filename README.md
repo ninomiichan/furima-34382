@@ -34,7 +34,7 @@
 
 ### Association
 - has_many :comments
-- belongs_to :user
+- has_many :user
 
 
 ## ordersテーブル
@@ -44,8 +44,8 @@
 | item     | references  | null:false,foreign_key:true  |
 
 ### Association
-- belongs_to :user
-- belongs_to :item
+- has_many :user
+- has_many :item
 
 
 ## addressesテーブル
@@ -60,9 +60,9 @@
 
 
 ### Association
-- belongs_to :user
-- belongs_to :item
-- belongs_to :orders
+- has_many :user
+- has_many :item
+- has_many :orders
 
 
 
@@ -77,5 +77,5 @@
 
 
 ### Association
-- belongs_to :user
-- belongs_to :item
+- has_many :user
+- has_many :item
