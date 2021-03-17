@@ -35,7 +35,7 @@
 ### Association
 - has_many :comments
 - belongs_to :user
-- has_many :orders
+- has_one :orders
 
 
 ## ordersテーブル
@@ -46,7 +46,8 @@
 
 ### Association
 - belongs_to :user
-- has_many :item
+- belongs_to :item
+- has_one :addresses
 
 
 ## addressesテーブル
@@ -57,14 +58,12 @@
 | city           | string     | null:false                    |
 | address        | string     | null:false                    |
 | building_name  | string     |                               |
-| phone_number   | integer    | null:false                    |
+| phone_number   | string     | null:false                    |
 | orders         | references | null:false,foreign_key:true   |
 
 
 ### Association
-- belongs_to  :user
-- has_many :item
-- has_many :orders
+- belongs_to :orders
 
 
 
