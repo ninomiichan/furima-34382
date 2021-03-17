@@ -20,23 +20,23 @@
 
 
 ## itemsテーブル
-| Column            | Type        | options     |
-|-------------------|-------------|-------------|
-| name              | string      | null:false  |
-| introduction      | text        | null:false  |
-| price             | integer     | null:false  |
-| category_id       | integer     | null:false  |
-| condition_id      | integer     | null:false  |
-| postage_id        | integer     | null:false  |
-| shipping_area_id  | integer     | null:false  |
-| shipping_days_id  | integer     | null:false  |
-| user              | references  | null:false  |
+| Column            | Type        | options                      |
+|-------------------|-------------|------------------------------|
+| name              | string      | null:false                   |
+| introduction      | text        | null:false                   |
+| price             | integer     | null:false                   |
+| category_id       | integer     | null:false                   |
+| condition_id      | integer     | null:false                   |
+| postage_id        | integer     | null:false                   |
+| prefecture_id     | integer     | null:false                   |
+| shipping_days_id  | integer     | null:false                   |
+| user              | references  | null:false,foreign_key:true  |
 
 
 ### Association
 - has_many :comments
 - belongs_to :user
-- has_one :orders
+- has_one :order
 
 
 ## ordersテーブル
@@ -64,7 +64,7 @@
 
 
 ### Association
-- belongs_to :orders
+- belongs_to :order
 
 
 
