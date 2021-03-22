@@ -22,7 +22,7 @@
 ## itemsテーブル
 | Column            | Type        | options                      |
 |-------------------|-------------|------------------------------|
-| name              | string      | null:false                   |
+| nickname          | string      | null:false                   |
 | introduction      | text        | null:false                   |
 | price             | integer     | null:false                   |
 | category_id       | integer     | null:false                   |
