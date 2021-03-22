@@ -19,7 +19,7 @@
       <ul class="user__info">
       <li>
       <% if user_signed_in? %>
-          <%= link_to "#{current_user.name}さん", user_path(current_user), class: :greeting__link%>
+          <%= link_to "#{current_user.nickname}さん", user_path(current_user), class: :greeting__link%>
      <li><%= link_to 'ログアウト', destroy_user_session_path, method: :delete, class: "logout" %> </li>
       <% else%>
       <li><%= link_to 'ログイン', user_session_path, class: "login" %></li>
