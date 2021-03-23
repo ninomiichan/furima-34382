@@ -23,3 +23,4 @@ with_options presence: true, format: { with: /\A[ァ-ヶ]+\z/  } do
   validates :family_name_kana
 end
 end
+
