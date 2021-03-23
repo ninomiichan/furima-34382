@@ -15,9 +15,7 @@
       <li><%= link_to 'ブランド', "#", class: "brand-list" %></li>
     </ul>
     <ul class='lists-right'>
-     
-      <ul class="user__info">
-      <li>
+    
       <% if user_signed_in? %>
           <%= link_to "#{current_user.nickname}さん", "#", class: :greeting__link%>
      <li><%= link_to 'ログアウト', destroy_user_session_path, method: :delete, class: "logout" %> </li>
