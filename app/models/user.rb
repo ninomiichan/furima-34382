@@ -22,8 +22,4 @@ with_options presence: true, format: { with: /\A[ァ-ヶ]+\z/  } do
   validates :first_name_kana
   validates :family_name_kana
 end
-
-VALID_EMAIL_REGEX = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i
-  validates :email, {presence: true,format: { with: VALID_EMAIL_REGEX }, uniqueness: { case_sensitive: false }}
-
 end
