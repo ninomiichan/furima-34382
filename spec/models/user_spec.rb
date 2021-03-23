@@ -57,7 +57,7 @@
             expect(@user.errors.full_messages).to include("Password is invalid")
           end
           it " passwordは英語のみでは登録できないこと" do
-            @user.password=  "テスト"
+            @user.password=  "test"
             @user.valid?
             expect(@user.errors.full_messages).to include("Password confirmation doesn't match Password", "Password is too short (minimum is 6 characters)", "Password is invalid")
           end
