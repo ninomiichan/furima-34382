@@ -7,35 +7,23 @@ class User < ApplicationRecord
          
   with_options presence: true do
     validates :nickname
-    validates :family_namelength: {with:/\A(?:\p{Hiragana}|\p{Katakana}|[ー－]|[一-龠々])+\z/,}
-    validates :first_namelength: {with:/\A(?:\p{Hiragana}|\p{Katakana}|[ー－]|[一-龠々])+\z/,}
-    validates :family_name_kana,length: {with: /\A[\p{katakana}　ー－&&[^ -~｡-ﾟ]]+\z/,}
-    validates :first_name_kana,length: {with: /\A[\p{katakana}　ー－&&[^ -~｡-ﾟ]]+\z/,}
     validates :birth_day
   end
 
-  validates :password,length: { /\A[a-z0-9]+\z/i
-  validates :password, length: { minimum: 6 }, format: { with: VALID_PASSWORD_REGEX }
-    
-  
+  PASSWORD_REGEX = /\A(?=.*?[a-z])(?=.*?[\d])[a-z\d]+\z/i.freeze
+  validates_format_of :password, with: PASSWORD_REGEX 
+
+ with_options presence: true, format: { with: /\A[ぁ-んァ-ヶ一-龥々ー]+\z/ } do
+  validates :first_name
+  validates :family_name
 end
 
+with_options presence: true, format: { with: /\A[ァ-ヶ]+\z/  } do
+  validates :first_name_kana
+  validates :family_name_kana
+end
 
-  # validates :nickname, with_optionsformat: {
-  #   with: /\A(?:\p{Hiragana}|\p{Katakana}|[ー－]|[一-龠々])+\z/,
-  #   message: "は、全角で入力して下さい"
-  #   }
-  # validates :family_name, with_optionsformat: {
-  #   with: /\A(?:\p{Hiragana}|\p{Katakana}|[ー－]|[一-龠々])+\z/,
-  #   message: "は、全角で入力して下さい"
-  #   }
-  # validates :first_name, with_optionsformat: {
-  #   with: /\A(?:\p{Hiragana}|\p{Katakana}|[ー－]|[一-龠々])+\z/,
-  #   message: "は、全角で入力して下さい"
-  #   }
-  # validates :family_name_kana, with_options {
-  #   with: /\A[\p{katakana}\p{blank}ー－]+\z/,
-  #   message: 'は全角カナで入力して下さい。'
-  # validates :first_name_kana, with_options {
-  #   with: /\A[\p{katakana}\p{blank}ー－]+\z/,
-  #   message: 'は全角カナで入力して下さい。'
+VALID_EMAIL_REGEX = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i
+  validates :email, {presence: true,format: { with: VALID_EMAIL_REGEX }, uniqueness: { case_sensitive: false }}
+
+end
