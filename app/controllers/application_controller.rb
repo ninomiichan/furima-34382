@@ -1,4 +1,5 @@
 class ApplicationController < ActionController::Base
+<<<<<<< Updated upstream
   
   private
 
@@ -8,10 +9,18 @@ class ApplicationController < ActionController::Base
   def configure_permitted_parameters
     devise_parameter_sanitizer.permit(:sign_up, keys: [:nickname, :first_name, :family_name, :first_name_kana, :family_name_kana, :birth_day])
   end
+=======
+  protect_from_forgery with: :exception
 
-  def basic_auth
-    authenticate_or_request_with_http_basic do |username, password|
-      username == ENV["BASIC_AUTH_USER"] && password == ENV["BASIC_AUTH_PASSWORD"]  # 環境変数を読み込む記述に変更
-    end
+  before_action :configure_permitted_parameters, if: :devise_controller?
+  # rescue_from Exception, with: :rescue_from_exception
+
+  protected
+>>>>>>> Stashed changes
+
+  def configure_permitted_parameters
+    added_attrs = [:name, :email, :password, :password_confirmation, :remember_me]
+    devise_parameter_sanitizer.permit :sign_up, keys: added_attrs
+    devise_parameter_sanitizer.permit :account_update, keys: added_attrs
   end
 end

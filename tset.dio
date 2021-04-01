@@ -1,6 +1,10 @@
 <mxfile>
     <diagram id="9kGAyaJSBDpN9VY7DVJz" name="ページ1">
+<<<<<<< Updated upstream
         <mxGraphModel dx="1841" dy="2009" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
+=======
+        <mxGraphModel dx="1130" dy="1505" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
+>>>>>>> Stashed changes
             <root>
                 <mxCell id="0"/>
                 <mxCell id="1" parent="0"/>
