@@ -10,10 +10,14 @@ class Item < ApplicationRecord
     validates :postage_id          , presence: { message: "配送料の負担 を選択してください" }
     validates :prefecture_id     , presence: { message: "発送元の地域 を選択してください" }
     validates :shipping_day_id  , presence: { message: "発送までの日数 を選択してください" }
-    validates :price             , presence: { message: "価格 を入力してください" },
-                                  numericality: { only_integer: true, greater_than_or_equal_to: 300,
-                                 less_than_or_equal_to: 9999999,
-                                 message: "価格 は300以上9999999以下の数字で入力してください" }
+    validates :price             , presence: { message: "価格 を入力してください" }
+    validates :price,       numericality: { only_integer: true, greater_than_or_equal_to: 300,less_than_or_equal_to: 9999999,message: "価格 は300以上9999999以下の数字で入力してください" }
+   validates :condition_id, numericality: { other_than: 0 }
+   validates :category_id, numericality: { other_than: 0 }
+   validates :postage_id, numericality: { other_than: 0 }
+   validates :prefecture_id, numericality: { other_than: 0 }
+   validates :shipping_day_id, numericality: { other_than: 0 } 
+   
 
   extend ActiveHash::Associations::ActiveRecordExtensions
   belongs_to :postage
@@ -23,3 +27,5 @@ class Item < ApplicationRecord
   belongs_to :shipping_day
  
 end
+
+
