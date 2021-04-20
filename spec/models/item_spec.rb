@@ -12,6 +12,8 @@ RSpec.describe Item, type: :model do
       end
     end
   
+
+    context '商品出品ができないとき' do
     it 'category_idが0では登録できない' do
       @item.category_id = 0
       @item.valid?
@@ -83,4 +85,5 @@ RSpec.describe Item, type: :model do
           expect(@item.errors.full_messages).to include "Image 商品画像を選択してください"
       end
   end
+end
 end
