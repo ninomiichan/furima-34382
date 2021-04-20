@@ -12,12 +12,14 @@ class Item < ApplicationRecord
     validates :shipping_day_id  , presence: { message: "発送までの日数 を選択してください" }
     validates :price             , presence: { message: "価格 を入力してください" }
     validates :price,       numericality: { only_integer: true, greater_than_or_equal_to: 300,less_than_or_equal_to: 9999999,message: "価格 は300以上9999999以下の数字で入力してください" }
-   validates :condition_id, numericality: { other_than: 0 }
-   validates :category_id, numericality: { other_than: 0 }
-   validates :postage_id, numericality: { other_than: 0 }
-   validates :prefecture_id, numericality: { other_than: 0 }
-   validates :shipping_day_id, numericality: { other_than: 0 } 
-   
+    with_options  numericality: { other_than: 0 }do
+    validates :condition_id
+   validates :category_id 
+   validates :postage_id
+   validates :prefecture_id
+   validates :shipping_day_id
+end 
+   validates :image , presence:{ message:"商品画像を選択してください"}
 
   extend ActiveHash::Associations::ActiveRecordExtensions
   belongs_to :postage

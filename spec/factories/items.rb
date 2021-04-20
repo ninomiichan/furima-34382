@@ -11,10 +11,8 @@ FactoryBot.define do
         shipping_day_id         { 1 }
         price            { 1000 }
       
-        after(:create) do |item|
-          create_list(:image, 3, item: item)
-
-          association :user 
+        after(:build) do |item|
+          item.image.attach(io: File.open('public/images/test_image.png'), filename: 'test_image.png')
         end
     
       end
