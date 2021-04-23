@@ -1,5 +1,7 @@
 class OrderController < ApplicationController
-  before_action :authenticate_user!, except: :index
+  before_action :authenticate_user!, except: [:index, :show]
+  before_action :set_item, only: [:edit, :show, :update, :destroy]
+  before_action :item_user, only: [:edit, :update, :destroy]
 
   def index
   end
